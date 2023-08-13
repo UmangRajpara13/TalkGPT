@@ -1,0 +1,69 @@
+{
+  "name": "talkgpt",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "electron-esbuild dev",
+    "build": "electron-esbuild build",
+    "package": "electron-builder"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.19",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "electron": "^25.2.0",
+    "electron-builder": "^24.4.0",
+    "electron-esbuild": "^8.0.0",
+    "electron-util": "^0.17.2",
+    "esbuild": "^0.18.11",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.1.6"
+  },
+  "build": {
+    "appId": "com.voyagingstar.myapp",
+    "productName": "TalkGPT",
+    "extraMetadata": {
+      "name": "talkgpt",
+      "main": "main.js"
+    },
+    "files": [
+      {
+        "from": ".",
+        "filter": [
+          "package.json"
+        ]
+      },
+      {
+        "from": "dist/main"
+      },
+      {
+        "from": "dist/renderer"
+      }
+    ],
+    "win": {
+      "target": [
+        "zip"
+      ]
+    },
+    "mac": {
+      "target": [
+        "zip"
+      ]
+    },
+    "linux": {
+      "target": [
+        "zip"
+      ]
+    },
+    "directories": {
+      "buildResources": "resources"
+    },
+    "publish": null
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
+    "openai": "^3.3.0",
+    "react-redux": "^8.1.2",
+    "ws": "^8.13.0"
+  }
+}
