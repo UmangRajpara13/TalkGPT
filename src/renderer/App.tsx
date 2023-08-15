@@ -1,32 +1,30 @@
-import React, { useEffect, useState,useRef } from 'react'
+import './App.css'
+import React, { useEffect, useState, useRef } from 'react'
 import { useAppSelector, useAppDispatch } from './hooks'
-import { increment } from './slice';
-
+import { addMessage } from './slice';
+import Conversation from './Components/conversation';
 
 export function App() {
   const [inputValue, setInputValue] = useState('');
-  const [conversation, setConversation] = useState([]);
-  const count = useAppSelector((state) => state.counter.value)
+  const conversation = useAppSelector((state) => state.converse.conversation)
   const dispatch = useAppDispatch()
 
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // Do something with the input value, like sending it to a server
-    console.log('Submitted value:', inputValue);
-    setConversation([...conversation, inputValue]);
+    // console.log('Submitted value:', inputValue);
+    dispatch(addMessage({
+      role: 'user',
+      content: inputValue
+    }))
     setInputValue('');
-
+    console.log(conversation)
   };
 
   const handleInputChange = (event) => {
     const { value } = event.target;
     setInputValue(value);
-     // Calculate the number of lines in the input value
-    //  const lineCount = value.split('\n').length;
-// console.log(lineCount)
-     // Set the rows dynamically based on line count (limited to 3 rows)
-    //  event.target.rows = Math.min(lineCount, 3);
     adjustTextareaHeight(event.target);
 
   };
@@ -37,16 +35,9 @@ export function App() {
       handleSubmit(event);
     }
   };
-  setTimeout(()=>{
-    dispatch(increment())
-   },1000)
-  
-  useEffect(() => { 
- 
-  
 
-     return    
-  }, [])   
+  useEffect(() => {
+  }, [])
 
   const maxRows = 6; // Set the maximum number of rows
 
@@ -56,32 +47,22 @@ export function App() {
   };
   return (
     <div className="container">
-<div>{count}</div>
-      <div className='conversation'>
-        {conversation.map((value, index) => (
-          <div key={index}>{value}</div>
-        ))}
-      </div>
 
-      <div  className='input-box'>
+      <Conversation />
+      <div className='input-box'>
         <form onSubmit={handleSubmit}>
-      <textarea
-        rows={1}
-        // ref={textareaRef}
-        style={{ resize: 'none' }}
-
-        // rows={calculateRows(inputValue)}
-
-        className='input-feild'
-        value={inputValue}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyDown}
-        placeholder="Enter something..."
-      />
-    </form>
+          <textarea
+            rows={1}
+            style={{ resize: 'none' }}
+            className='input-feild'
+            value={inputValue}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
+            placeholder="Enter something..."
+          />
+        </form>
       </div>
-      
+
     </div>
   )
 }
- 

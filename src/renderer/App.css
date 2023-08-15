@@ -1,0 +1,14 @@
+
+.input-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 10px ;
+    flex: 1;
+  }
+  
+  .input-feild {
+    height: 100%;
+    width: 100%;
+  }
+  

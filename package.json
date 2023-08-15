@@ -62,6 +62,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
+    "dotenv": "^16.3.1",
     "openai": "^3.3.0",
     "react-redux": "^8.1.2",
     "ws": "^8.13.0"

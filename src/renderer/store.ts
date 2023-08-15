@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { counterSlice } from './slice'
+import { conversationSlice} from './slice'
 
 // ...
 
 const store = configureStore({
     reducer: {
-        counter: counterSlice.reducer,
+        converse: conversationSlice.reducer,
     },
 })
 

@@ -5,6 +5,7 @@ specifiers:
   '@types/node': ^18.16.19
   '@types/react': ^18.2.14
   '@types/react-dom': ^18.2.6
+  dotenv: ^16.3.1
   electron: ^25.2.0
   electron-builder: ^24.4.0
   electron-esbuild: ^8.0.0
@@ -19,6 +20,7 @@ specifiers:
 
 dependencies:
   '@reduxjs/toolkit': 1.9.5_nnem43rer6rxr5uhc4j6bxdlmm
+  dotenv: 16.3.1
   openai: 3.3.0
   react-redux: 8.1.2_gltvt74xzh7f5lvw2hzxriz5bu
   ws: 8.13.0
@@ -1363,6 +1365,11 @@ packages:
   /dotenv-expand/5.1.0:
     resolution: {integrity: sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==}
     dev: true
+
+  /dotenv/16.3.1:
+    resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
+    engines: {node: '>=12'}
+    dev: false
 
   /dotenv/9.0.2:
     resolution: {integrity: sha512-I9OvvrHp4pIARv4+x9iuewrWycX6CcZtoAu1XrzPxc5UygMJXJZYmBsynku8IkrJwgypE5DGNjDPmPRhDCptUg==}
