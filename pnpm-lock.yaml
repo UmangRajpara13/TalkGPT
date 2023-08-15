@@ -11,6 +11,7 @@ specifiers:
   electron-esbuild: ^8.0.0
   electron-util: ^0.17.2
   esbuild: ^0.18.11
+  highlight.js: ^11.8.0
   openai: ^3.3.0
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -21,6 +22,7 @@ specifiers:
 dependencies:
   '@reduxjs/toolkit': 1.9.5_nnem43rer6rxr5uhc4j6bxdlmm
   dotenv: 16.3.1
+  highlight.js: 11.8.0
   openai: 3.3.0
   react-redux: 8.1.2_gltvt74xzh7f5lvw2hzxriz5bu
   ws: 8.13.0
@@ -1970,6 +1972,11 @@ packages:
     dependencies:
       function-bind: 1.1.1
     dev: true
+
+  /highlight.js/11.8.0:
+    resolution: {integrity: sha512-MedQhoqVdr0U6SSnWPzfiadUcDHfN/Wzq25AkXiQv9oiOO/sG0S7XkvpFIqWBl9Yq1UYyYOOVORs5UW2XlPyzg==}
+    engines: {node: '>=12.0.0'}
+    dev: false
 
   /hoist-non-react-statics/3.3.2:
     resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}

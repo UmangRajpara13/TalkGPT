@@ -1,7 +1,7 @@
 import './App.css'
 import React, { useEffect, useState, useRef } from 'react'
 import { useAppSelector, useAppDispatch } from './hooks'
-import { addMessage } from './slice';
+import { addMessage,addFormattedMessage } from './slice';
 import Conversation from './Components/conversation';
 
 export function App() {
@@ -12,14 +12,12 @@ export function App() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // Do something with the input value, like sending it to a server
-    // console.log('Submitted value:', inputValue);
+    setInputValue('');
     dispatch(addMessage({
       role: 'user',
       content: inputValue
     }))
-    setInputValue('');
-    console.log(conversation)
+    dispatch(addFormattedMessage({ type: 'p', content: inputValue }))
   };
 
   const handleInputChange = (event) => {
