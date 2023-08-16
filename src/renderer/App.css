@@ -1,14 +1,45 @@
+.input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 70px 20px 70px;
+  flex: 1;
+}
+.input-form {
+  display: flex;
+height: 100%;  width: 100%;
+  border-color: blue;
+  
+}
+.input-feild {
+  background: #302f2f;
+  color: white;
+  font-size:20px;
+  /* height: 100%; */
+  text-align: center; /* Center horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex:1;
+  border:1px solid white;
+  text-align-last: left;
+}
+.input-feild::-webkit-scrollbar{
+  
+  background-color: #302f2f;
+  width: 5px;
+}
+.input-feild::-webkit-scrollbar-thumb{
+  background-color: white;
+  width: 5px;
+  border-radius: 55px;
+}
+.input-feild::placeholder{
+  color: white;
+  text-align: center;
+  align-self: center;
 
-.input-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px 10px ;
-    flex: 1;
-  }
-  
-  .input-feild {
-    height: 100%;
-    width: 100%;
-  }
-  
+}
+.input-feild:focus-visible{
+  outline-color: springgreen;
+}

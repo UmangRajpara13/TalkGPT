@@ -6,7 +6,8 @@ body {
   margin: 0;
   font-family: -apple-system, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  background: white;
+  background: #302f2f;
+  color: white;
 }
 
 .container {
@@ -18,4 +19,6 @@ body {
 .conversation {
   flex: 5;
   padding: 30px 50px ;
+  overflow-y: auto;
+  overflow-x: hidden;
 }

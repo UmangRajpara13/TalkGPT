@@ -1,7 +1,8 @@
 import * as path from 'path'
 import { format } from 'url'
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, Menu } from 'electron'
 import { is } from 'electron-util'
+import './wsClient'
 
 let win: BrowserWindow | null = null
 
@@ -13,11 +14,15 @@ async function createWindow() {
     minWidth: 650,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
+      webSecurity: false
       // preload: path.join(__dirname, 'preload.js'),
     },
     show: false,
   })
 
+  // Menu.setApplicationMenu(null)
+  
   const isDev = is.development
 
   if (isDev) {
@@ -31,8 +36,8 @@ async function createWindow() {
         slashes: true,
       }),
     )
-  } 
- 
+  }
+
   win.on('closed', () => {
     win = null
   })

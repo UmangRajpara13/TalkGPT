@@ -6,8 +6,7 @@ import hljs from 'highlight.js';
 
 const configuration = new Configuration({
     // organization: "",
-    // apiKey: remote.process.env.REACT_APP_OPENAI_API_KEY,
-    apiKey: "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",
+    apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 

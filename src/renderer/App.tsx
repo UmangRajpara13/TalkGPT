@@ -1,4 +1,5 @@
 import './App.css'
+
 import React, { useEffect, useState, useRef } from 'react'
 import { useAppSelector, useAppDispatch } from './hooks'
 import { addMessage,addFormattedMessage } from './slice';
@@ -6,7 +7,6 @@ import Conversation from './Components/conversation';
 
 export function App() {
   const [inputValue, setInputValue] = useState('');
-  const conversation = useAppSelector((state) => state.converse.conversation)
   const dispatch = useAppDispatch()
 
 
@@ -47,8 +47,8 @@ export function App() {
     <div className="container">
 
       <Conversation />
-      <div className='input-box'>
-        <form onSubmit={handleSubmit}>
+      <div className='input'>
+        <form onSubmit={handleSubmit} className='input-form'>
           <textarea
             rows={1}
             style={{ resize: 'none' }}
@@ -56,7 +56,7 @@ export function App() {
             value={inputValue}
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
-            placeholder="Enter something..."
+            // placeholder="Enter something..."
           />
         </form>
       </div>
