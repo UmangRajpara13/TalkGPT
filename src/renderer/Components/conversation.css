@@ -1,0 +1,15 @@
+.conversation {
+  flex: 5;
+  padding: 30px 50px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.code-titlebar {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  padding: 5px;
+}
+.code-body {
+}

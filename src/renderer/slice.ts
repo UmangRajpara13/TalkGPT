@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import type { RootState } from './store'
 import { ChatCompletionRequestMessage } from 'openai'
 
 
@@ -31,6 +30,7 @@ export const conversationSlice = createSlice({
       state.conversation.push(action.payload)
     },
     addFormattedMessage: (state, action: PayloadAction<formattedMessage>) => {
+      console.log(action.payload.content.split(' ').slice(1).join(' '))
       state.formattedConversation.push(action.payload)
     },
   },

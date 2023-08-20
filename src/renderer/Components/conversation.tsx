@@ -1,3 +1,4 @@
+import './conversation.css'
 import React, { useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../hooks'
 import { Configuration, OpenAIApi } from "openai";
@@ -35,7 +36,6 @@ function Conversation() {
                 const matches = message.content.match(sourceCodePattern);
                 console.log(matches)
 
-
                 parts.map((part, index) => {
                     // console.log(part,matches[index])
 
@@ -48,7 +48,6 @@ function Conversation() {
                     } else {
                         console.log('// its text')
                         dispatch(addFormattedMessage({ type: 'p', content: part }))
-
                     }
                 })
 
@@ -75,21 +74,26 @@ function Conversation() {
 
     return (
         <div className='conversation'>
-            {/* {conversation.map((value, index) => (
-                <div key={index}>{value.content}</div>
-            ))} */}
             {formattedConversation.map((value, index) =>
-            (
-                <React.Fragment key={index}>
-                    {value.type === 'code' ? (<div>
-                        <button className="copy-button" onClick={() => handleCopyClick(value.content)}>Copy</button>
-                        <pre><code className="hljs" dangerouslySetInnerHTML={{ __html: value.content }} /></pre>
-                    </div>
-                    ) : (
-                        <p dangerouslySetInnerHTML={{ __html: value.content }} />
-                    )}
-                </React.Fragment>
-            )
+            (<React.Fragment key={index}>
+                {value.type === 'code' ? (
+                    <div>
+                        <div className='code-titlebar'>
+                            {value.content.split('\n')[0]}
+                            <button className="copy-button" onClick={() => handleCopyClick(value.content.split('\n').slice(1).join('\n'))}>
+                                Copy
+                            </button>
+                        </div>
+                        <div className='code-body'>
+                            <pre>
+                                <code className="hljs"
+                                    dangerouslySetInnerHTML={{ __html: value.content.split('\n').slice(1).join('\n') }} />
+                            </pre>
+                        </div>                    </div>
+                ) : (
+                    <p dangerouslySetInnerHTML={{ __html: value.content }} />
+                )}
+            </React.Fragment>)
             )}
         </div>
     )
