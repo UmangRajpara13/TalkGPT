@@ -2,10 +2,13 @@ import * as path from 'path'
 import { format } from 'url'
 import { app, BrowserWindow, Menu } from 'electron'
 import { is } from 'electron-util'
-import './wsClient'
+import {ConnectToWebSocketServer} from './wsClient'
 
-let win: BrowserWindow | null = null
+export let win: BrowserWindow | null = null
 
+process.on('uncaughtException',(error)=>{
+console.log(error)
+})
 async function createWindow() {
   win = new BrowserWindow({
     width: 800,
@@ -20,6 +23,7 @@ async function createWindow() {
     },
     show: false,
   })
+  ConnectToWebSocketServer();
 
   // Menu.setApplicationMenu(null)
   
@@ -48,11 +52,12 @@ async function createWindow() {
   })
 
   win.once('ready-to-show', () => {
-    win.show()
-    win!.focus()
+    win.show() 
+    // win!.focus()
+    // win.blur()
 
-    if (isDev) {
-      win!.webContents.openDevTools()
+    if (isDev) { 
+      // win!.webContents.openDevTools()/
     }
   })
 }

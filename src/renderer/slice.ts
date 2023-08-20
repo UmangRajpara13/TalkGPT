@@ -16,11 +16,17 @@ export const conversationSlice = createSlice({
   name: 'converse',
   // `createSlice` will infer the state type from the `initialState` argument
   initialState: {
+    inputValue: '',
     conversation: conversation,
     formattedConversation: [{ "type": "p", "content": "You are a helpful assistant." }]
   },
   reducers: {
-    // Use the PayloadAction type to declare the contents of `action.payload`
+    addInput: (state, action: PayloadAction<string>) => {
+      state.inputValue = action.payload
+    },
+    appendInput: (state, action: PayloadAction<string>) => {
+      state.inputValue += action.payload
+    },
     addMessage: (state, action: PayloadAction<ChatCompletionRequestMessage>) => {
       state.conversation.push(action.payload)
     },
@@ -30,4 +36,4 @@ export const conversationSlice = createSlice({
   },
 })
 
-export const { addMessage, addFormattedMessage } = conversationSlice.actions
+export const { addInput, appendInput, addMessage, addFormattedMessage } = conversationSlice.actions
