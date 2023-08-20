@@ -1,0 +1,115 @@
+{
+  "buildDependenciesFromSource": false,
+  "nodeGypRebuild": false,
+  "appId": "com.thevoyagingstar.talkgpt",
+  "afterSign": "dev_scripts/notarize.js",
+  "productName": "TalkGPT",
+  "protocols": {
+    "name": "talkgpt",
+    "schemes": [
+      "talkgpt"
+    ]
+  },
+  "extraResources": [
+    {
+      "from": "./build/${platform}",
+      "to": "./${platform}"
+    }
+  ],
+  "linux": {
+    "category": "TerminalEmulator",
+    "maintainer": "umangrajpara",
+    "target": [
+      {
+        "target": "deb",
+        "arch": [
+          "x64","arm64"
+        ]
+      },
+      {
+        "target": "AppImage",
+        "arch": [
+          "x64","arm64"
+        ]
+      },
+      {
+        "target": "rpm",
+        "arch": [
+          "x64","arm64"
+        ]
+      }
+    ]
+  },
+  "win": {
+    "target": [
+      "nsis"
+    ],
+    "rfc3161TimeStampServer": "http://timestamp.comodoca.com"
+  },
+  "nsis": {
+    "include": "build/win/installer.nsh",
+    "oneClick": false,
+    "perMachine": true,
+    "allowToChangeInstallationDirectory": true
+  },
+  "dmg":{
+    "sign": false
+  },
+  "mac": {
+    "target": "dmg",
+    "hardenedRuntime":true,
+    "gatekeeperAssess": false,
+    "category": "public.app-category.developer-tools",
+    "entitlements": "build/mac/entitlements.plist",
+    "entitlementsInherit": "build/mac/entitlements.plist",
+    "extendInfo": {
+      "CFBundleDocumentTypes": [
+        {
+          "CFBundleTypeName": "Folders",
+          "CFBundleTypeRole": "Viewer",
+          "LSHandlerRank": "Alternate",
+          "LSItemContentTypes": [
+            "public.folder",
+            "com.apple.bundle",
+            "com.apple.package",
+            "com.apple.resolvable"
+          ]
+        },
+        {
+          "CFBundleTypeName": "UnixExecutables",
+          "CFBundleTypeRole": "Shell",
+          "LSHandlerRank": "Alternate",
+          "LSItemContentTypes": [
+            "public.unix-executable"
+          ]
+        }
+      ],
+      "CFBundleURLTypes": [
+        {
+          "CFBundleURLName": "talkgpt",
+          "CFBundleURLSchemes": [
+            "talkgpt"
+          ]
+        }
+      ],
+      "NSAppleEventsUsageDescription": "An application in TalkGPT wants to use AppleScript.",
+      "NSCalendarsUsageDescription": "An application in TalkGPT wants to access Calendar data.",
+      "NSCameraUsageDescription": "An application in TalkGPT wants to use the Camera.",
+      "NSContactsUsageDescription": "An application in TalkGPT wants to access your Contacts.",
+      "NSDesktopFolderUsageDescription": "An application in TalkGPT wants to access the Desktop folder.",
+      "NSDocumentsFolderUsageDescription": "An application in TalkGPT wants to access the Documents folder.",
+      "NSDownloadsFolderUsageDescription": "An application in TalkGPT wants to access the Downloads folder.",
+      "NSFileProviderDomainUsageDescription": "An application in TalkGPT wants to access files managed by a file provider.",
+      "NSFileProviderPresenceUsageDescription": "An application in TalkGPT wants to be informed when other apps access files that it manages.",
+      "NSLocationUsageDescription": "An application in TalkGPT wants to access your location information.",
+      "NSMicrophoneUsageDescription": "An application in TalkGPT wants to use your microphone.",
+      "NSMotionUsageDescription": "An application in TalkGPT wants to use the device’s accelerometer.",
+      "NSNetworkVolumesUsageDescription": "An application in TalkGPT wants to access files on a network volume.",
+      "NSPhotoLibraryUsageDescription": "An application in TalkGPT wants to access the photo library.",
+      "NSRemindersUsageDescription": "An application in TalkGPT wants to access your reminders.",
+      "NSRemovableVolumesUsageDescription": "An application in TalkGPT wants to access files on a removable volume.",
+      "NSSpeechRecognitionUsageDescription": "An application in TalkGPT wants to send user data to Apple’s speech recognition servers.",
+      "NSSystemAdministrationUsageDescription": "The operation being performed by an application in TalkGPT requires elevated permission."
+    }
+  }
+}

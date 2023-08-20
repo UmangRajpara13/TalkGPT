@@ -19,47 +19,7 @@
     "react-dom": "^18.2.0",
     "typescript": "^5.1.6"
   },
-  "build": {
-    "appId": "com.voyagingstar.myapp",
-    "productName": "TalkGPT",
-    "extraMetadata": {
-      "name": "talkgpt",
-      "main": "main.js"
-    },
-    "files": [
-      {
-        "from": ".",
-        "filter": [
-          "package.json"
-        ]
-      },
-      {
-        "from": "dist/main"
-      },
-      {
-        "from": "dist/renderer"
-      }
-    ],
-    "win": {
-      "target": [
-        "zip"
-      ]
-    },
-    "mac": {
-      "target": [
-        "zip"
-      ]
-    },
-    "linux": {
-      "target": [
-        "zip"
-      ]
-    },
-    "directories": {
-      "buildResources": "resources"
-    },
-    "publish": null
-  },
+
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "dotenv": "^16.3.1",
