@@ -7,6 +7,7 @@ import { appendInput } from './slice';
 import Conversation from './Components/conversation';
 import { ipcRenderer } from 'electron';
 import InputBox from './Components/InputBox';
+import Titlebar from './Components/Titlebar';
 
 export function App() {
 
@@ -33,7 +34,7 @@ export function App() {
 
   return (
     <div className="container">
-
+      <Titlebar />
       <Conversation />
       <InputBox />
 

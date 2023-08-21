@@ -1,0 +1,32 @@
+.titlebar {
+  display: flex;
+  background-color: black;
+}
+
+.titlebar-label {
+  -webkit-app-region: drag;
+  display: flex;
+  flex: 1;
+  font-size: 20px;
+  padding: 10px;
+  justify-content: center;
+}
+
+.titlebar-close {
+    -webkit-app-region: no-drag;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  font-size: 25px;
+  padding: 3px;
+  color: gray;
+}
+.titlebar-close:hover {
+  background-color: red;
+  color: white;
+}
+.titlebar-close span {
+  /* width: 30px; */
+}

@@ -11,8 +11,9 @@ console.log(error)
 })
 async function createWindow() {
   win = new BrowserWindow({
-    width: 800,
-    height: 820,
+    width: 1165, 
+    height: 555,
+    frame:false,
     minHeight: 600,
     minWidth: 650,
     webPreferences: {
@@ -25,9 +26,10 @@ async function createWindow() {
   })
   ConnectToWebSocketServer();
 
-  // Menu.setApplicationMenu(null)
-  
   const isDev = is.development
+
+  // if (isDev) Menu.setApplicationMenu(null)
+  
 
   if (isDev) {
     // this is the default port electron-esbuild is using
