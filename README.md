@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="./build/css/readme.css">
+<link rel="stylesheet" type="text/css" href="./assets/readme.css">
 
 <div class="product-container">
   <div>
