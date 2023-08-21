@@ -49,10 +49,13 @@ export const conversationSlice = createSlice({
       if (action.payload.role === 'assistant' || action.payload.role === 'system') {
         message.class = "non-user-message"
       }
-      if (action.payload.type === 'code' && action.payload.content.startsWith('html')) {
-        message.content = action.payload.content.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-      } else {
-        message.content = action.payload.content
+
+      message.content = action.payload.content.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+      if (action.payload.type === 'text') {
+        message.content = message.content.replace(/`([^`]+)`/g, (match, code) => {
+          return '<code>' + code + '</code>';
+        });
       }
       state.formattedConversation.push(message)
     },

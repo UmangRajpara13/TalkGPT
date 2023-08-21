@@ -6,7 +6,7 @@ body {
   margin: 0;
   font-family: -apple-system, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  background: #302f2f;
+  background: #2d323a;
   color: white;
 }
 pre{
@@ -18,4 +18,12 @@ pre{
   flex-direction: column;
 }
 
-
+*::-webkit-scrollbar{
+  background-color: #2d323a;
+  width: 10px;
+}
+*::-webkit-scrollbar-thumb{
+  background-color: rgba(202, 202, 202, 0.582) ; 
+  width: 10px;
+  border-radius: 3px;
+}

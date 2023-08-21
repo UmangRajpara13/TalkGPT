@@ -7,39 +7,41 @@
 }
 .input-form {
   display: flex;
-height: 100%;  width: 100%;
+  height: 100%;
+  width: 100%;
   border-color: blue;
-  
 }
 .input-feild {
-  background: #302f2f;
+  background: #2d323a;
   color: white;
-  font-size:20px;
+  font-size: 20px;
   /* height: 100%; */
   text-align: center; /* Center horizontally */
   display: flex;
   justify-content: center;
   align-items: center;
-  flex:1;
-  border:1px solid white;
+  flex: 1;
+  border: 2px solid rgba(95, 121, 161, 0.89);
+  border-radius: 10px;
   text-align-last: left;
 }
-.input-feild::-webkit-scrollbar{
-  
+.input-feild::-webkit-scrollbar {
   background-color: #302f2f;
   width: 5px;
 }
-.input-feild::-webkit-scrollbar-thumb{
+.input-feild::-webkit-scrollbar-thumb {
   background-color: white;
   width: 5px;
   border-radius: 55px;
 }
-.input-feild::placeholder{
+.input-feild::placeholder {
   color: white;
   text-align: center;
   align-self: center;
-
 }
-.input-feild:focus-visible{
-  outline-color: springgreen;
+.input-feild:focus-visible {
+  outline-color: rgb(53, 99, 167);
+}
+
+.input-feild:focus-visible {
 }
