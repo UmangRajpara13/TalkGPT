@@ -1,14 +1,14 @@
 <link rel="stylesheet" type="text/css" href="./assets/readme.css">
 
 <div class="product-container">
-  <div>
+  <!-- <div>
     <p>
       <a aria-label="TalkGPT logo">
         <img width ="45px" height="35px" src="./build/icons/512x512.png">
       </a>
     </p>
-  </div>
-  <div class="product-label" >
+  </div> -->
+  <div font-size="50px" class="product-label" >
     <p>TalkGPT</p>
   </div>
 </div>
