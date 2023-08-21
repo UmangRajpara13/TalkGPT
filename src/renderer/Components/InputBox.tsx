@@ -16,7 +16,7 @@ function InputBox() {
       content: inputValue
     }))
 
-    dispatch(addFormattedMessage({ type: 'p', role: 'user', content: inputValue }))
+    dispatch(addFormattedMessage({ type: 'text', role: 'user', content: inputValue }))
   };
 
   const handleInputChange = (event) => {

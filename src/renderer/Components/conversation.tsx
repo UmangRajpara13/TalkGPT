@@ -48,7 +48,7 @@ function Conversation() {
 
                     } else {
                         console.log('// its text')
-                        dispatch(addFormattedMessage({ type: 'p', role: 'assistant', content: part }))
+                        dispatch(addFormattedMessage({ type: 'text', role: 'assistant', content: part }))
                     }
                 })
 
@@ -78,7 +78,7 @@ function Conversation() {
             {formattedConversation.map((message, index) =>
             (<React.Fragment key={index}>
                 {message.type === 'code' ? (
-                    <div className={(message.role == 'assistant' || message.role == 'system') ? '' : 'green'}>
+                    <div className={message.class}>
                         <div className='code-titlebar'>
                             <span>
                                 {message.content.split('\n')[0]}
@@ -87,7 +87,7 @@ function Conversation() {
                                 Copy
                             </button>
                         </div>
-                        <div className='code-body'>
+                        <div>
                             <pre>
                                 <code className="hljs"
                                     dangerouslySetInnerHTML={{ __html: message.content.split('\n').slice(1).join('\n') }} />
@@ -95,7 +95,7 @@ function Conversation() {
                         </div>
                     </div>
                 ) : (
-                    <div className={(message.role == 'assistant' || message.role == 'system') ? '' : 'green'}>
+                    <div className={message.class}>
                         <p dangerouslySetInnerHTML={{ __html: message.content }} />
                     </div>
 

@@ -12,15 +12,12 @@
   padding: 5px;
 }
 
-.code-body {
-}
-
 p{
   padding: 20px 30px;
   /* background-color: #323232; */
 }
 
-.green {
+.user-message {
   /* padding: 10px 20px; */
   background-color: rgba(0, 128, 0, 0.329);
 }

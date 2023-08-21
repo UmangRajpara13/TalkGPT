@@ -5,12 +5,14 @@ import { ChatCompletionRequestMessage } from 'openai'
 
 const conversation: ChatCompletionRequestMessage[] = [
   { "role": "system", "content": "You are a helpful assistant." }
- ]
+]
 
 interface formattedMessage {
-  type: 'p' | 'code',
+  type: 'text' | 'code',
   role: 'system' | 'user' | 'assistant',
-  content: string
+  content: string,
+  language?: string,
+  class?: string
 }
 
 export const conversationSlice = createSlice({
@@ -20,7 +22,7 @@ export const conversationSlice = createSlice({
     inputValue: '',
     conversation: conversation,
     formattedConversation: [
-      { "type": "p", role: "system", "content": "You are a helpful assistant." }
+      { type: 'text', role: "system", content: "You are a helpful assistant.", class: "non-user-message" }
     ]
   },
   reducers: {
@@ -34,8 +36,25 @@ export const conversationSlice = createSlice({
       state.conversation.push(action.payload)
     },
     addFormattedMessage: (state, action: PayloadAction<formattedMessage>) => {
-      console.log(action.payload.content.split(' ').slice(1).join(' '))
-      state.formattedConversation.push(action.payload)
+      const message = {
+        type: action.payload.type,
+        role: action.payload.role,
+        content: '',
+        class: '',
+        language: ''
+      }
+      if (action.payload.role === 'user') {
+        message.class = "user-message"
+      }
+      if (action.payload.role === 'assistant' || action.payload.role === 'system') {
+        message.class = "non-user-message"
+      }
+      if (action.payload.type === 'code' && action.payload.content.startsWith('html')) {
+        message.content = action.payload.content.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      } else {
+        message.content = action.payload.content
+      }
+      state.formattedConversation.push(message)
     },
   },
 })
