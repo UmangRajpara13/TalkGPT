@@ -3,7 +3,7 @@
 <div class="product-container">
   <div>
     <p>
-      <a aria-label="Arrow logo">
+      <a aria-label="TalkGPT logo">
         <img width ="45px" height="35px" src="./build/icons/512x512.png">
       </a>
     </p>
@@ -13,7 +13,16 @@
   </div>
 </div>
 
-#### Desktop App that connects to GPT_3.5_Turbo through Chat Completion API.
+#### Desktop App that connects to GPT_3.5_Turbo through Chat Completion API.  
+
+
+<div>
+    <p>
+      <a aria-label="screenshot">
+        <img  src="./assets/screenshot.png">
+      </a>
+    </p>
+</div>
 
 ## Run
 
