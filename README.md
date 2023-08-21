@@ -1,6 +1,7 @@
+## TalkGPT
 <link rel="stylesheet" type="text/css" href="./assets/readme.css">
 
-<div class="product-container">
+<!-- <div class="product-container"> -->
   <!-- <div>
     <p>
       <a aria-label="TalkGPT logo">
@@ -8,12 +9,12 @@
       </a>
     </p>
   </div> -->
-  <div font-size="50px" class="product-label" >
+  <!-- <div font-size="50px" class="product-label" >
     <p>TalkGPT</p>
-  </div>
-</div>
+  </div> -->
+<!-- </div> -->
 
-#### Desktop App that connects to GPT_3.5_Turbo through Chat Completion API.  
+#### Desktop App that connects to GPT_3.5_Turbo and provides Chat Completion through API.  
 
 
 <div>
@@ -24,7 +25,7 @@
     </p>
 </div>
 
-## Run
+## Run  
 
 #### Dependecy Installation
 
