@@ -16,6 +16,7 @@
 
 #### Desktop App that connects to GPT_3.5_Turbo and provides Chat Completion through API.  
 
+#### Works standalone as well as with [Able](https://github.com/umangrajpara13/Able) for Speech-to-Text Capability
 
 <div>
     <p>
@@ -41,4 +42,4 @@ replace `your_api_key` with actual secret API key from OpenAI
 
     yarn package
 
-### Works standalone as well as with [Able](https://github.com/umangrajpara13/Able) for Speech-to-Text Capability
+
