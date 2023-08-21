@@ -1,0 +1,403 @@
+{
+    "darwin": {
+        "currentPalette": "Dark",
+        "enableVibrancy": true,
+        "vibrancy": "under-window"
+    },
+    "defaultColorPalettes": {
+        "Dark": {
+            "titleBar": {
+                "background": "#302f2f",
+                "tabTitle": {
+                    "active_BG": "#161616",
+                    "active_Label": "#eceaea",
+                    "inactive_Label": "#929191",
+                    "inactive_BG_Hover": "#9b99994d"
+                },
+                "windowControls": {
+                    "background": "#444444"
+                }
+            },
+            "panel": {
+                "paneSplit": "#7d7d7d",
+                "scrollBar": {
+                    "foreground": "#949596",
+                    "FG_Hover": "#d1d2d3",
+                    "BG_Hover": "#302f2f"
+                },
+                "terminal": {
+                    "background": "#161616",
+                    "foreground": "#eceaea",
+                    "selection": "#1ec4f744",
+                    "cursor": "#e4e4e4",
+                    "brightBlack": "#f3f0f0",
+                    "black": "#272727",
+                    "brightBlue": "#1779e9",
+                    "blue": "#09e5f5",
+                    "brightCyan": "#28e4e4",
+                    "cyan": "#53e9e9",
+                    "brightGreen": "#4bf109",
+                    "green": "#24b807",
+                    "brightMagenta": "#b31db3",
+                    "magenta": "#b419b4",
+                    "brightRed": "#e90202",
+                    "red": "#fa3232",
+                    "brightWhite": "#d8dad9",
+                    "white": "#adadad",
+                    "brightYellow": "#f1ce03",
+                    "yellow": "#d4b527"
+                }
+            },
+            "statusBar": {
+                "background": "#111111",
+                "label": "#e4e4e4",
+                "label_BG_Hover": "#827f7f82"
+            },
+            "menu": {
+                "background": "#393939",
+                "seperator": "#cbcbcb",
+                "label": "#cbcbcb",
+                "label_BG_Hover": "#707070d1",
+                "scrollBar": "#949596"
+            }
+        },
+        "Sky": {
+            "titleBar": {
+                "background": "#87CEFA",
+                "tabTitle": {
+                    "active_BG": "#6499b9",
+                    "active_Label": "#ffffff",
+                    "inactive_Label": "#42423f",
+                    "inactive_BG_Hover": "#23262975"
+                },
+                "windowControls": {
+                    "background": "#87CEFA"
+                }
+            },
+            "panel": {
+                "paneSplit": "#7d7d7d",
+                "scrollBar": {
+                    "foreground": "#afc2ca",
+                    "FG_Hover": "#6b6a6a",
+                    "BG_Hover": "#b8b8b8"
+                },
+                "terminal": {
+                    "background": "#87CEFA",
+                    "foreground": "#222222",
+                    "selection": "#bcd1d257",
+                    "cursor": "#242424",
+                    "brightBlack": "#f3f0f0",
+                    "black": "#000000",
+                    "brightBlue": "#11c9cf",
+                    "blue": "#cfccc9",
+                    "brightCyan": "#35baf3",
+                    "cyan": "#09afbb",
+                    "brightGreen": "#4cce19",
+                    "green": "#6bbb4c",
+                    "brightMagenta": "#b6678b",
+                    "magenta": "#8a2e57",
+                    "brightRed": "#fa6547",
+                    "red": "#eb836e",
+                    "brightWhite": "#0bb86a",
+                    "white": "#1dce7e",
+                    "brightYellow": "#ecca04",
+                    "yellow": "#d0d310"
+                }
+            },
+            "statusBar": {
+                "background": "#c4cace",
+                "label": "#3b3b3a",
+                "BG_Hover": "#a6a1a18e"
+            },
+            "menu": {
+                "background": "#c4cace",
+                "seperator": "#4a4c4d",
+                "label": "#313131",
+                "label_BG_Hover": "#9b9b9b70",
+                "scrollBar": "#7b7c78"
+            }
+        },
+        "Blue": {
+            "titleBar": {
+                "background": "#a9adaf",
+                "tabTitle": {
+                    "active_BG": "#045569",
+                    "active_Label": "#ffffff",
+                    "inactive_Label": "#1b1b1b",
+                    "inactive_BG_Hover": "#9b99994d"
+                },
+                "windowControls": {
+                    "background": "#141414fd"
+                }
+            },
+            "panel": {
+                "paneSplit": "#7d7d7d",
+                "scrollBar": {
+                    "foreground": "#afc2ca",
+                    "FG_Hover": "#6b6a6a",
+                    "BG_Hover": "#b8b8b8"
+                },
+                "terminal": {
+                    "background": "#045569",
+                    "foreground": "#ffffff",
+                    "selection": "#bcd1d257",
+                    "cursor": "#e4e4e4",
+                    "brightBlack": "#f3f0f0",
+                    "black": "#000000",
+                    "brightBlue": "#11c9cf",
+                    "blue": "#cfccc9",
+                    "brightCyan": "#35baf3",
+                    "cyan": "#09afbb",
+                    "brightGreen": "#4cce19",
+                    "green": "#6bbb4c",
+                    "brightMagenta": "#b6678b",
+                    "magenta": "#8a2e57",
+                    "brightRed": "#fa6547",
+                    "red": "#eb836e",
+                    "brightWhite": "#0bb86a",
+                    "white": "#1dce7e",
+                    "brightYellow": "#ecca04",
+                    "yellow": "#d0d310"
+                }
+            },
+            "statusBar": {
+                "background": "#0b6379",
+                "label": "#e4e4e4",
+                "BG_Hover": "#e4e4e42e"
+            },
+            "menu": {
+                "background": "#808080",
+                "seperator": "#000000",
+                "label": "#161616",
+                "label_BG_Hover": "#707070d1",
+                "scrollBar": "#949596"
+            }
+        },
+        "Grey": {
+            "titleBar": {
+                "background": "#31363b",
+                "tabTitle": {
+                    "active_BG": "#232629",
+                    "active_Label": "#cacabe",
+                    "inactive_Label": "#cacabe",
+                    "inactive_BG_Hover": "#23262975"
+                },
+                "windowControls": {
+                    "background": "#31363b"
+                }
+            },
+            "panel": {
+                "paneSplit": "#7d7d7d",
+                "scrollBar": {
+                    "foreground": "#9e9fa0",
+                    "FG_Hover": "#6b6a6a",
+                    "BG_Hover": "#b8b8b8"
+                },
+                "terminal": {
+                    "background": "#232629",
+                    "foreground": "#cacabe",
+                    "selection": "#72bee533",
+                    "cursor": "#e6e6e6",
+                    "brightBlack": "#161616",
+                    "black": "#e9e9e9",
+                    "brightBlue": "#1779e9",
+                    "blue": "#2e73c2",
+                    "brightCyan": "#07b4b4",
+                    "cyan": "#037e7e",
+                    "brightGreen": "#27bd08",
+                    "green": "#1d9705",
+                    "brightMagenta": "#b31db3",
+                    "magenta": "#b419b4",
+                    "brightRed": "#fa2828",
+                    "red": "#fa4242",
+                    "brightWhite": "#4e4e4e",
+                    "white": "#202020",
+                    "brightYellow": "#838115",
+                    "yellow": "#838115"
+                }
+            },
+            "statusBar": {
+                "background": "#2c2e31",
+                "label": "#cacabe",
+                "BG_Hover": "#8884845b"
+            },
+            "menu": {
+                "background": "#323538",
+                "seperator": "#4a4c4d",
+                "label": "#cfcfc2",
+                "label_BG_Hover": "#9b9b9b70",
+                "scrollBar": "#7b7c78"
+            }
+        },
+        "Cobalt": {
+            "titleBar": {
+                "background": "#8da1ad",
+                "tabTitle": {
+                    "active_BG": "#becdd7",
+                    "active_Label": "#52524c",
+                    "inactive_Label": "#52524c",
+                    "inactive_BG_Hover": "#bfc0c075"
+                },
+                "windowControls": {
+                    "background": "#31363b"
+                }
+            },
+            "panel": {
+                "paneSplit": "#7d7d7d",
+                "scrollBar": {
+                    "foreground": "#9e9fa0",
+                    "FG_Hover": "#6b6a6a",
+                    "BG_Hover": "#b8b8b8"
+                },
+                "terminal": {
+                    "background": "#bac8d2",
+                    "foreground": "#323231",
+                    "selection": "#72bfe5b1",
+                    "cursor": "#323231",
+                    "brightBlack": "#161616",
+                    "black": "#e9e9e9",
+                    "brightBlue": "#1779e9",
+                    "blue": "#2e73c2",
+                    "brightCyan": "#07b4b4",
+                    "cyan": "#037e7e",
+                    "brightGreen": "#27bd08",
+                    "green": "#1d9705",
+                    "brightMagenta": "#b31db3",
+                    "magenta": "#b419b4",
+                    "brightRed": "#fa2828",
+                    "red": "#fa4242",
+                    "brightWhite": "#4e4e4e",
+                    "white": "#202020",
+                    "brightYellow": "#838115",
+                    "yellow": "#838115"
+                }
+            },
+            "statusBar": {
+                "background": "#becdd7",
+                "label": "#333331",
+                "BG_Hover": "#8884845b"
+            },
+            "menu": {
+                "background": "#323538",
+                "seperator": "#4a4c4d",
+                "label": "#cfcfc2",
+                "label_BG_Hover": "#9b9b9b70",
+                "scrollBar": "#7b7c78"
+            }
+        },
+        "Light": {
+            "titleBar": {
+                "background": "#858a8d",
+                "tabTitle": {
+                    "active_BG": "#c4cace",
+                    "active_Label": "#4e4f50",
+                    "inactive_Label": "#161616",
+                    "inactive_BG_Hover": "#c4cace"
+                },
+                "windowControls": {
+                    "background": "#bdbbba"
+                }
+            },
+            "panel": {
+                "paneSplit": "#7d7d7d",
+                "scrollBar": {
+                    "foreground": "#9e9fa0",
+                    "FG_Hover": "#6b6a6a",
+                    "BG_Hover": "#b8b8b8"
+                },
+                "terminal": {
+                    "background": "#c4cace",
+                    "foreground": "#000000",
+                    "selection": "#5d616333",
+                    "cursor": "#000000",
+                    "brightBlack": "#161616",
+                    "black": "#e9e9e9",
+                    "brightBlue": "#1779e9",
+                    "blue": "#2e73c2",
+                    "brightCyan": "#07b4b4",
+                    "cyan": "#037e7e",
+                    "brightGreen": "#27bd08",
+                    "green": "#1d9705",
+                    "brightMagenta": "#b31db3",
+                    "magenta": "#b419b4",
+                    "brightRed": "#fa2828",
+                    "red": "#fa4242",
+                    "brightWhite": "#4e4e4e",
+                    "white": "#202020",
+                    "brightYellow": "#838115",
+                    "yellow": "#838115"
+                }
+            },
+            "statusBar": {
+                "background": "#acb4b9",
+                "label": "#292929",
+                "BG_Hover": "#8884845b"
+            },
+            "menu": {
+                "background": "#c1c1c1",
+                "seperator": "#000000",
+                "label": "#161616",
+                "label_BG_Hover": "#9b9b9b70",
+                "scrollBar": "#949596"
+            }
+        },
+        "VibrantLight": {
+            "titleBar": {
+                "background": "#858a8d",
+                "tabTitle": {
+                    "active_BG": "#c4cace",
+                    "active_Label": "#4e4f50",
+                    "inactive_Label": "#161616",
+                    "inactive_BG_Hover": "#c4cace"
+                },
+                "windowControls": {
+                    "background": "#bdbbba",
+                    "foreground": "#363535",
+                    "BG_Hover": "#afadad83"
+                }
+            },
+            "panel": {
+                "paneSplit": "#7d7d7d",
+                "scrollBar": {
+                    "foreground": "#9e9fa0",
+                    "FG_Hover": "#6b6a6a",
+                    "BG_Hover": "#b8b8b8"
+                },
+                "terminal": {
+                    "background": "#c4cace00",
+                    "foreground": "#000000",
+                    "selection": "#5d616333",
+                    "cursor": "#000000",
+                    "brightBlack": "#161616",
+                    "black": "#e9e9e9",
+                    "brightBlue": "#1779e9",
+                    "blue": "#2e73c2",
+                    "brightCyan": "#07b4b4",
+                    "cyan": "#037e7e",
+                    "brightGreen": "#27bd08",
+                    "green": "#1d9705",
+                    "brightMagenta": "#b31db3",
+                    "magenta": "#b419b4",
+                    "brightRed": "#fa2828",
+                    "red": "#fa4242",
+                    "brightWhite": "#4e4e4e",
+                    "white": "#202020",
+                    "brightYellow": "#838115",
+                    "yellow": "#838115"
+                }
+            },
+            "statusBar": {
+                "background": "#acb4b9",
+                "label": "#292929",
+                "BG_Hover": "#8884845b"
+            },
+            "menu": {
+                "background": "#c1c1c1",
+                "seperator": "#000000",
+                "label": "#161616",
+                "label_BG_Hover": "#9b9b9b70",
+                "scrollBar": "#949596"
+            }
+        }
+    }
+}

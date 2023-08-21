@@ -1,0 +1,70 @@
+{
+    "terminal.defaultProfile": "powershell",
+    "terminal.profiles": {
+        "powershell": {
+            "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "args": []
+        },
+        "cmd": {
+            "path": "C:\\WINDOWS\\system32\\cmd.exe",
+            "args": []
+        },
+        "gitBash": {
+            "path": "C:\\Program Files\\Git\\bin\\bash.exe",
+            "args": []
+        }
+    },
+    "terminal.configuration": {
+        "lineHeight": 1,
+        "letterSpacing": 1,
+        "fontFamily": "Lucida Console",
+        "fontSize": 15,
+        "bellStyle": "sound",
+        "cursorBlink": true,
+        "cursorStyle": "block",
+        "fastScrollModifier": "ctrl",
+        "fastScrollSensitivity": 10,
+        "scrollSensitivity": 1
+    },
+    "terminal.keybindings": {
+        "splitPane": "alt+s",
+        "newTab": "ctrl+t",
+        "newWindow": "ctrl+n"
+    },
+    "terminal.file.actions": {
+        "js": {
+            "command": "node ${fileName}\r"
+        },
+        "py": {
+            "command": "python3 ${fileName}\r"
+        },
+        "sh": {
+            "command": "./${fileName}\r"
+        }
+    },
+    "terminal.url.actions": [
+        {
+            "startsWithAnyOf": [
+                "https://",
+                "git@"
+            ],
+            "endsWithAnyOf": [
+                ".git"
+            ],
+            "actions": [
+                {
+                    "title": "Clone",
+                    "command": "git clone ${url}\r"
+                },
+                {
+                    "title": "Add Origin",
+                    "command": "git remote add origin ${url}\r"
+                },
+                {
+                    "title": "Set Url origin",
+                    "command": "git remote set-url origin ${url}\r"
+                }
+            ]
+        }
+    ]
+}

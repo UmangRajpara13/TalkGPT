@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "electron-esbuild dev",
     "build": "electron-esbuild build",
-    "package": "electron-builder"
+    "package": "yarn build && electron-builder",
+    "debianInstall": "sudo dpkg -i dist/talkgpt_1.0.0_amd64.deb"
   },
   "devDependencies": {
     "@types/node": "^18.16.19",
@@ -17,9 +18,9 @@
     "esbuild": "^0.18.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "electron-webpack": "^2.8.2"
   },
-
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "dotenv": "^16.3.1",

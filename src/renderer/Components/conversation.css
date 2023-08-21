@@ -1,6 +1,6 @@
 .conversation {
   flex: 5;
-  padding: 30px 50px;
+  padding: 30px 0px;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -8,8 +8,19 @@
 .code-titlebar {
   display: flex;
   justify-content: space-between;
-  background-color: black;
+  background-color: rgb(71, 71, 71);
   padding: 5px;
 }
+
 .code-body {
+}
+
+p{
+  padding: 20px 30px;
+  /* background-color: #323232; */
+}
+
+.green {
+  /* padding: 10px 20px; */
+  background-color: rgba(0, 128, 0, 0.329);
 }

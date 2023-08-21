@@ -1,0 +1,80 @@
+{
+    "terminal.defaultProfile": "bash",
+    "terminal.profiles": {
+        "bash": {
+            "path": "bash",
+            "args": []
+        },
+        "zsh": {
+            "path": "zsh",
+            "args": []
+        }
+    },
+    "terminal.configuration": {
+        "lineHeight": 1,
+        "letterSpacing": 1,
+        "fontFamily": "monospace, PowerlineSymbols",
+        "fontSize": 15,
+        "bellStyle": "sound",
+        "cursorBlink": true,
+        "cursorStyle": "block",
+        "fastScrollModifier": "ctrl",
+        "fastScrollSensitivity": 10,
+        "scrollSensitivity": 1
+    },
+    "terminal.keybindings": {
+        "splitPane": "alt+s",
+        "newTab": "ctrl+t",
+        "newWindow": "ctrl+n",
+        "focusPrevPane": "alt+arrowleft",
+        "focusNextPane": "alt+arrowright"
+    },
+    "terminal.file.actions": {
+        "js": {
+            "command": "node ${fileName}\r"
+        },
+        "cjs": {
+            "command": "node ${fileName}\r"
+        },
+        "deb": {
+            "command": "sudo dpkg -i ${fileName}\r"
+        },
+        "py": {
+            "command": "python3 ${fileName}\r"
+        },
+        "sh": {
+            "command": "bash ${fileName}\r"
+        },
+        "php": {
+            "command": "php ${fileName}\r"
+        },
+        "ts": {
+            "command": "ts-node ${fileName}\r"
+        }
+    },
+    "terminal.url.actions": [
+        {
+            "startsWithAnyOf": [
+                "https://",
+                "git@"
+            ],
+            "endsWithAnyOf": [
+                ".git"
+            ],
+            "actions": [
+                {
+                    "title": "Clone",
+                    "command": "git clone ${url}\r"
+                },
+                {
+                    "title": "Add Origin",
+                    "command": "git remote add origin ${url}\r"
+                },
+                {
+                    "title": "Set Url origin",
+                    "command": "git remote set-url origin ${url}\r"
+                }
+            ]
+        }
+    ]
+}

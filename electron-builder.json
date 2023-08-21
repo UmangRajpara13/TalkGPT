@@ -1,8 +1,7 @@
 {
   "buildDependenciesFromSource": false,
   "nodeGypRebuild": false,
-  "appId": "com.thevoyagingstar.talkgpt",
-  "afterSign": "dev_scripts/notarize.js",
+  "appId": "com.voyagingstar.talkgpt",
   "productName": "TalkGPT",
   "protocols": {
     "name": "talkgpt",

@@ -9,6 +9,7 @@ const configuration = new Configuration({
     // organization: "",
     apiKey: process.env.OPENAI_API_KEY,
 });
+console.log(process.env.OPENAI_API_KEY)
 const openai = new OpenAIApi(configuration);
 
 function Conversation() {
@@ -43,11 +44,11 @@ function Conversation() {
 
                     if (matches && matches.includes(searchString)) {
                         console.log('// its a code')
-                        dispatch(addFormattedMessage({ type: 'code', content: part }))
+                        dispatch(addFormattedMessage({ type: 'code', role: 'assistant', content: part }))
 
                     } else {
                         console.log('// its text')
-                        dispatch(addFormattedMessage({ type: 'p', content: part }))
+                        dispatch(addFormattedMessage({ type: 'p', role: 'assistant', content: part }))
                     }
                 })
 
@@ -74,24 +75,30 @@ function Conversation() {
 
     return (
         <div className='conversation'>
-            {formattedConversation.map((value, index) =>
+            {formattedConversation.map((message, index) =>
             (<React.Fragment key={index}>
-                {value.type === 'code' ? (
-                    <div>
+                {message.type === 'code' ? (
+                    <div className={(message.role == 'assistant' || message.role == 'system') ? '' : 'green'}>
                         <div className='code-titlebar'>
-                            {value.content.split('\n')[0]}
-                            <button className="copy-button" onClick={() => handleCopyClick(value.content.split('\n').slice(1).join('\n'))}>
+                            <span>
+                                {message.content.split('\n')[0]}
+                            </span>
+                            <button className="copy-button" onClick={() => handleCopyClick(message.content.split('\n').slice(1).join('\n'))}>
                                 Copy
                             </button>
                         </div>
                         <div className='code-body'>
                             <pre>
                                 <code className="hljs"
-                                    dangerouslySetInnerHTML={{ __html: value.content.split('\n').slice(1).join('\n') }} />
+                                    dangerouslySetInnerHTML={{ __html: message.content.split('\n').slice(1).join('\n') }} />
                             </pre>
-                        </div>                    </div>
+                        </div>
+                    </div>
                 ) : (
-                    <p dangerouslySetInnerHTML={{ __html: value.content }} />
+                    <div className={(message.role == 'assistant' || message.role == 'system') ? '' : 'green'}>
+                        <p dangerouslySetInnerHTML={{ __html: message.content }} />
+                    </div>
+
                 )}
             </React.Fragment>)
             )}

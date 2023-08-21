@@ -4,10 +4,12 @@ import { ChatCompletionRequestMessage } from 'openai'
 
 
 const conversation: ChatCompletionRequestMessage[] = [
-  { "role": "system", "content": "You are a helpful assistant." }]
+  { "role": "system", "content": "You are a helpful assistant." }
+ ]
 
 interface formattedMessage {
   type: 'p' | 'code',
+  role: 'system' | 'user' | 'assistant',
   content: string
 }
 
@@ -17,7 +19,9 @@ export const conversationSlice = createSlice({
   initialState: {
     inputValue: '',
     conversation: conversation,
-    formattedConversation: [{ "type": "p", "content": "You are a helpful assistant." }]
+    formattedConversation: [
+      { "type": "p", role: "system", "content": "You are a helpful assistant." }
+    ]
   },
   reducers: {
     addInput: (state, action: PayloadAction<string>) => {

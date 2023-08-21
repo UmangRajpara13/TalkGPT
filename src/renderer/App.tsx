@@ -1,4 +1,5 @@
 import './App.css'
+import 'highlight.js/styles/github-dark.css';
 
 import React, { useEffect, useState, useRef } from 'react'
 import { useAppDispatch } from './hooks'
