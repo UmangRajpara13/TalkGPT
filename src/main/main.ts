@@ -4,13 +4,13 @@ import { app, BrowserWindow, Menu } from 'electron'
 import { is } from 'electron-util'
 import {ConnectToWebSocketServer} from './wsClient'
 
-export let win: BrowserWindow | null = null
+export let window: BrowserWindow | null = null
 
 process.on('uncaughtException',(error)=>{
 console.log(error)
 })
 async function createWindow() {
-  win = new BrowserWindow({
+  window = new BrowserWindow({
     width: 1165, 
     height: 555,
     frame:false,
@@ -33,9 +33,9 @@ async function createWindow() {
 
   if (isDev) {
     // this is the default port electron-esbuild is using
-    win.loadURL('http://localhost:9080')
+    window.loadURL('http://localhost:9080')
   } else {
-    win.loadURL(
+    window.loadURL(
       format({
         pathname: path.join(__dirname, 'index.html'),
         protocol: 'file',
@@ -44,22 +44,22 @@ async function createWindow() {
     )
   }
 
-  win.on('closed', () => {
-    win = null
+  window.on('closed', () => {
+    window = null
   })
 
-  win.webContents.on('devtools-opened', () => {
-    // win!.focus()
-    // win.focus()
+  window.webContents.on('devtools-opened', () => {
+    // window!.focus()
+    // window.focus()
   })
 
-  win.once('ready-to-show', () => {
-    win.show() 
-    // win!.focus()
-    // win.blur()
+  window.once('ready-to-show', () => {
+    window.show() 
+    // window!.focus()
+    // window.blur()
 
     if (isDev) { 
-      // win!.webContents.openDevTools()/
+      // window!.webContents.openDevTools()/
     }
   })
 }
@@ -73,7 +73,7 @@ app.on('window-all-closed', () => {
 })
 
 app.on('activate', () => {
-  if (win === null && app.isReady()) {
+  if (window === null && app.isReady()) {
     createWindow()
   }
 })

@@ -1,16 +1,15 @@
 // Import the WebSocket module
-import { ipcMain } from 'electron';
 import WebSocket from 'ws';
-import { win } from './main';
+import { window } from './main';
 
-var connectionId: string
+var connectionId: number
 var connection = null
 
 
 
 export function ConnectToWebSocketServer() {
 
-  win.on('focus', () => {
+  window.on('focus', () => {
     console.log('Window focused');
     connection?.send(JSON.stringify({
       windowState: {
@@ -22,7 +21,7 @@ export function ConnectToWebSocketServer() {
   
   });
   
-  win.on('blur', () => {
+  window.on('blur', () => {
     console.log('Window blurred');
     connection?.send(JSON.stringify({
       windowState: {
@@ -43,7 +42,18 @@ export function ConnectToWebSocketServer() {
   // Event listener for when the connection is established
   connection.on("open", function open() {
     console.log("connection open");
-    connection?.send(JSON.stringify({ identifier: `talkgpt` }));
+
+    connectionId = Date.now()
+
+    connection?.send(
+      JSON.stringify({
+        registerConnection: {
+          connectionId: connectionId,
+          identifier: `talkgpt`,
+          isWindowFocused: window.isFocused,
+        },
+      })
+    );
   });
 
   // Event listener for receiving messages from the server
@@ -55,13 +65,10 @@ export function ConnectToWebSocketServer() {
     const command = Object.keys(dataPacket)[0];
 
     switch (command) {
-      case "connectionId":
-        connectionId = dataPacket.connectionId.timeStamp
-        break;
-
+   
       case "transcription":
         // apiProcessorGen3(dataPacket.spokenSentence, isFocused, windowID);
-        win.webContents.send('transcription', dataPacket.transcription.spokenSentence);
+        window.webContents.send('transcription', dataPacket.transcription.spokenSentence);
 
       default:
         break;
