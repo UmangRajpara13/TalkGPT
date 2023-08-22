@@ -1,5 +1,7 @@
 import './Titlebar.css'
 import React from 'react'
+import { X } from 'react-feather';
+
 
 function Titlebar() {
     const closeWindow = (e) => {
@@ -8,14 +10,16 @@ function Titlebar() {
     };
 
     return (
-        <div  className='titlebar no-select'>
+        <div className='titlebar no-select'>
             <div className='titlebar-label'>
                 <span>TalkGPT</span>
             </div>
             <div className="titlebar-close" onClick={closeWindow}>
-                <span>X</span>
+            <X />    
             </div>
-        </div>)
+          
+        </div>
+        )
 }
 
 export default Titlebar

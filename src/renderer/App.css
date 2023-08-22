@@ -1,47 +1,7 @@
-.input {
+.app{
+  height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 70px 20px 70px;
-  flex: 1;
-}
-.input-form {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  border-color: blue;
-}
-.input-feild {
-  background: #2d323a;
-  color: white;
-  font-size: 20px;
-  /* height: 100%; */
-  text-align: center; /* Center horizontally */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  border: 2px solid rgba(95, 121, 161, 0.89);
-  border-radius: 10px;
-  text-align-last: left;
-}
-.input-feild::-webkit-scrollbar {
-  background-color: #302f2f;
-  width: 5px;
-}
-.input-feild::-webkit-scrollbar-thumb {
-  background-color: white;
-  width: 5px;
-  border-radius: 55px;
-}
-.input-feild::placeholder {
-  color: white;
-  text-align: center;
-  align-self: center;
-}
-.input-feild:focus-visible {
-  outline-color: rgb(53, 99, 167);
-}
-
-.input-feild:focus-visible {
+  flex-direction: column;
+  background: #2b2b2b;
+  color: rgb(202, 201, 201);
 }

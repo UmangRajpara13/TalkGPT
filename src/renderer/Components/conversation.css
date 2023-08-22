@@ -1,47 +1,51 @@
 .conversation {
   flex: 5;
-  padding: 30px 10px 30px 0px;
+  padding: 30px 0px 30px 0px;
   overflow-y: auto;
   overflow-x: hidden;
-  margin-right: 10px;
 }
 
 .conversation::-webkit-scrollbar {
-  background-color: #2d323a;
-  width: 7px;  border-radius: 5px;
+  background-color: transparent;
+  width: 15px;
+  border-radius: 0px;
   margin-left: 10px;
+}
 
-}
-.conversation::-webkit-scrollbar:hover {
-  background-color: #3c4658;
-  width: 12px  !important;
-}
 .conversation::-webkit-scrollbar-thumb {
-  background-color: rgba(202, 202, 202, 0.582) ; 
-  border-radius: 5px;
-} 
+  background-color: rgba(201, 201, 201, 0.384);
+  border-radius: 0px;
+}
 
 .conversation::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(202, 202, 202, 0.493) ; 
+  background-color: rgba(202, 202, 202, 0.726);
 }
-
 
 .code-titlebar {
   display: flex;
   justify-content: space-between;
-  background-color: rgb(71, 71, 71);
+  background-color: rgb(66, 66, 66);
   padding: 5px;
 }
+.code-title {
+  margin-left: 10px;
+}
+.copy-button {
+  background-color: inherit;
+  color: inherit;
+  margin-right: 20px;
+}
 
-p{
-  padding: 20px 30px;
+p {
+  padding: 10px 30px;
+  margin: 10px 0;
 }
 
 .user-message {
-  background-color: rgb(95 121 161 / 33%);
+  background-color: rgba(94, 117, 117, 0.37);
 }
 
-.code::after,.code::before{
+.code::after,
+.code::before {
   content: "`";
 }
-

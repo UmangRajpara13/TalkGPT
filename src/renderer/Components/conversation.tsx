@@ -80,7 +80,7 @@ function Conversation() {
                 {message.type === 'code' ? (
                     <div className={message.class}>
                         <div className='code-titlebar'>
-                            <span>
+                            <span className='code-title'>
                                 {message.content.split('\n')[0]}
                             </span>
                             <button className="copy-button" onClick={() => handleCopyClick(message.content.split('\n').slice(1).join('\n'))}>

@@ -1,0 +1,55 @@
+.input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 70px 20px 70px;
+  flex: 1;
+}
+
+.input-form {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.input-feild {
+  background: #2b2b2b;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-align-last: center;
+  vertical-align: middle;
+
+  flex: 1;
+  border: 1px solid rgba(144, 144, 145, 0.89);
+  border-radius: 10px;
+  /* padding: 5px; */
+}
+
+.input-feild::-webkit-scrollbar {
+  background-color: #302f2f;
+  width: 5px;
+}
+
+.input-feild::-webkit-scrollbar-thumb {
+  background-color: white;
+  width: 5px;
+  border-radius: 55px;
+}
+
+.input-feild::placeholder {
+  color: rgb(177, 176, 176);
+  text-align: center;
+  align-self: center;
+}
+
+.input-feild:focus {
+  outline: none;
+}
+
+.input-feild:focus-visible {
+  border: 1px solid rgb(123, 158, 158);
+}

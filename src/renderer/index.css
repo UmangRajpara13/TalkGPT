@@ -6,17 +6,12 @@ body {
   margin: 0;
   font-family: -apple-system, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  background: #2d323a;
-  color: white;
+  
 }
 pre{
   margin: 0;
 }
-.container {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+
 
 *::-webkit-scrollbar{
   background-color: #2d323a;

@@ -1,3 +1,4 @@
+import './InputBox.css'
 import React, { useEffect, useState, useRef } from 'react'
 import { useAppSelector, useAppDispatch } from '../hooks'
 import { addInput, addMessage, addFormattedMessage } from '../slice';
@@ -22,10 +23,8 @@ function InputBox() {
   const handleInputChange = (event) => {
     const { value } = event.target;
     console.log(value)
-
     dispatch(addInput(value))
     adjustTextareaHeight(event.target);
-
   };
 
   const handleKeyDown = (event) => {
@@ -34,6 +33,7 @@ function InputBox() {
       handleSubmit(event);
     }
   };
+
   const maxRows = 6; // Set the maximum number of rows
 
   const adjustTextareaHeight = (textarea) => {
@@ -51,7 +51,7 @@ function InputBox() {
           value={inputValue}
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
-        // placeholder="Enter something..."
+          placeholder="Enter something..."
         />
       </form>
     </div>
