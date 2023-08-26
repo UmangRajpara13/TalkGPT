@@ -3,13 +3,14 @@
   background: #2b2b2b;
   color: #c2c1c1;
   border-bottom: 1px dashed;
+  padding: 4px;
 }
 
 .titlebar-label {
   -webkit-app-region: drag;
   display: flex;
   flex: 1;
-  font-size: 20px;
+  /* font-size: 17px; */
   padding: 5px;
   justify-content: center;
 }

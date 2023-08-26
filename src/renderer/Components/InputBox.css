@@ -3,7 +3,8 @@
   justify-content: center;
   align-items: center;
   padding: 10px 70px 20px 70px;
-  flex: 1;
+  flex: 1;  background: #2b2b2b;
+
 }
 
 .input-form {

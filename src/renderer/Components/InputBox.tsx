@@ -10,19 +10,21 @@ function InputBox() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    dispatch(addInput(''))
+    dispatch(addFormattedMessage({ type: 'text', role: 'user', content: inputValue }))
 
     dispatch(addMessage({
       role: 'user',
       content: inputValue
     }))
 
-    dispatch(addFormattedMessage({ type: 'text', role: 'user', content: inputValue }))
+
+    dispatch(addInput(''))
+
   };
 
   const handleInputChange = (event) => {
     const { value } = event.target;
-    console.log(value)
+    // console.log(value)
     dispatch(addInput(value))
     adjustTextareaHeight(event.target);
   };
@@ -40,6 +42,9 @@ function InputBox() {
     textarea.style.height = 'auto';
     textarea.style.height = `${Math.min(textarea.scrollHeight, maxRows * 22)}px`; // Adjust the row height (usually 22px per row)
   };
+  useEffect(()=>{
+    
+  })
   return (
     <div className='input'>
       <form onSubmit={handleSubmit} className='input-form'>

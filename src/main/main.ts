@@ -2,18 +2,20 @@ import * as path from 'path'
 import { format } from 'url'
 import { app, BrowserWindow, Menu } from 'electron'
 import { is } from 'electron-util'
-import {ConnectToWebSocketServer} from './wsClient'
+import { ConnectToWebSocketServer, SetupWindowState } from './wsClient'
+import './fetch'
 
 export let window: BrowserWindow | null = null
 
-process.on('uncaughtException',(error)=>{
-console.log(error)
+process.on('uncaughtException', (error) => {
+  console.log(error)
+  window.webContents.send('error', error)
 })
 async function createWindow() {
   window = new BrowserWindow({
-    width: 1165, 
+    width: 1165,
     height: 555,
-    frame:false,
+    frame: false,
     minHeight: 600,
     minWidth: 650,
     webPreferences: {
@@ -24,12 +26,13 @@ async function createWindow() {
     },
     show: false,
   })
-  ConnectToWebSocketServer();
 
+  ConnectToWebSocketServer();
+  SetupWindowState()
   const isDev = is.development
 
   // if (isDev) Menu.setApplicationMenu(null)
-  
+
 
   if (isDev) {
     // this is the default port electron-esbuild is using
@@ -54,11 +57,11 @@ async function createWindow() {
   })
 
   window.once('ready-to-show', () => {
-    window.show() 
+    window.show()
     // window!.focus()
     // window.blur()
 
-    if (isDev) { 
+    if (isDev) {
       // window!.webContents.openDevTools()/
     }
   })

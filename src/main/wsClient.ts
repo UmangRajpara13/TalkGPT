@@ -9,30 +9,6 @@ var connection = null
 
 export function ConnectToWebSocketServer() {
 
-  window.on('focus', () => {
-    console.log('Window focused');
-    connection?.send(JSON.stringify({
-      windowState: {
-        connectionId: connectionId,
-        identifier: `talkgpt`,
-        isWindowFocused: true
-      }
-    }));
-  
-  });
-  
-  window.on('blur', () => {
-    console.log('Window blurred');
-    connection?.send(JSON.stringify({
-      windowState: {
-        connectionId: connectionId,
-        identifier: `talkgpt`,
-        isWindowFocused: false
-      }
-    }));
-  
-  });
-
   // WebSocket server URL
   const SERVER_URL = 'ws://localhost:1111';
 
@@ -65,7 +41,7 @@ export function ConnectToWebSocketServer() {
     const command = Object.keys(dataPacket)[0];
 
     switch (command) {
-   
+
       case "transcription":
         // apiProcessorGen3(dataPacket.spokenSentence, isFocused, windowID);
         window.webContents.send('transcription', dataPacket.transcription.spokenSentence);
@@ -77,17 +53,49 @@ export function ConnectToWebSocketServer() {
 
   // Event listener for handling errors
   connection.on('error', (error) => {
-    console.error('WebSocket error:', error);
-    // setTimeout(() => {
-    //   ConnectToWebSocketServer();
-    // }, 1000);
+    // console.error('WebSocket error:', error);
+    connection = null
+    connectionId = null
+
   });
   // Event listener for handling connection closure
-  connection.on("close", function message(data) {
+  connection.on("close", function message(e) {
+    connection = null
+    connectionId = null
+
+    window.webContents.send('error', e)
     console.log("connection close");
-    // setTimeout(() => {
-    //   ConnectToWebSocketServer();
-    // }, 1000);
+    setTimeout(() => {
+      ConnectToWebSocketServer();
+    }, 1000);
   });
 }
 
+export function SetupWindowState() {
+  window.on('focus', () => {
+    console.log('Window focused');
+    connection?.send(JSON.stringify({
+      windowState: {
+        connectionId: connectionId,
+        identifier: `talkgpt`,
+        isWindowFocused: true
+      }
+    }));
+    window.webContents.send('state', true)
+
+
+  });
+
+  window.on('blur', () => {
+    console.log('Window blurred');
+    connection?.send(JSON.stringify({
+      windowState: {
+        connectionId: connectionId,
+        identifier: `talkgpt`,
+        isWindowFocused: false
+      }
+    }));
+    window.webContents.send('state', false)
+
+  });
+}

@@ -3,17 +3,18 @@
   padding: 30px 0px 30px 0px;
   overflow-y: auto;
   overflow-x: hidden;
+  background-color: #2b2b2b;
 }
 
 .conversation::-webkit-scrollbar {
-  background-color: transparent;
+  background-color: #5e75755e;
   width: 15px;
   border-radius: 0px;
   margin-left: 10px;
 }
 
 .conversation::-webkit-scrollbar-thumb {
-  background-color: rgba(201, 201, 201, 0.384);
+  background-color: rgba(201, 201, 201, 0.589);
   border-radius: 0px;
 }
 
@@ -25,24 +26,37 @@
   display: flex;
   justify-content: space-between;
   background-color: rgb(66, 66, 66);
+  height: 35px;
   padding: 5px;
 }
 .code-title {
   margin-left: 10px;
+  padding: 5px;
 }
 .copy-button {
   background-color: inherit;
   color: inherit;
-  margin-right: 20px;
+  width: 100px;
 }
 
 p {
   padding: 10px 30px;
-  margin: 10px 0;
+  margin: 0;
 }
 
 .user-message {
-  background-color: rgba(94, 117, 117, 0.37);
+  margin: 40px 0;
+  margin-left: 60vw;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: #5e75755e;
+}
+.non-user-message {
+  /* margin: 10px 0; */
+
+  margin-right: 10vw;
+  /* background-color: rgba(94, 117, 117, 0.37); */
+  /* background-color: #334c74; */
 }
 
 .code::after,

@@ -2,14 +2,16 @@ import './conversation.css'
 import React, { useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../hooks'
 import { Configuration, OpenAIApi } from "openai";
-import { addMessage, addFormattedMessage } from '../slice';
+import { addMessage, addFormattedMessage, appendLastMessage } from '../slice';
+import axios from 'axios';
 import hljs from 'highlight.js';
+import { ipcRenderer } from 'electron';
 
 const configuration = new Configuration({
     // organization: "",
     apiKey: process.env.OPENAI_API_KEY,
 });
-console.log(process.env.OPENAI_API_KEY)
+// console.log(process.env.OPENAI_API_KEY)
 const openai = new OpenAIApi(configuration);
 
 function Conversation() {
@@ -18,49 +20,72 @@ function Conversation() {
     const dispatch = useAppDispatch()
 
     useEffect(() => {
+        // ipcRenderer.on('fetchResponse', (event, data) => {
+        //     // console.log(data)
+        //     console.log(conversation)
+        //     // dispatch(addMessage(JSON.parse(data)))
+
+        //     // dispatch(appendLastMessage(JSON.parse(data)))
+
+
+        //     var received = ''
+        //     var codeIncoming = false
+
+
+
+        //     // if (data.includes('`')) {
+        //     //   for (let i = 0; i < 2; i++) {
+        //     //     received += data
+        //     //   }
+        //     //   if (received.includes('```')) {
+        //     //     const textCodeSplit = received.split('```')
+        //     //     if (!codeIncoming) {
+        //     //       // dispatch(appendLastMessage(JSON.parse(data)))
+
+        //     //       // window.webContents.send('fetchResponse', JSON.stringify({ type: 'text', role: 'assistant', content: textCodeSplit[0] }))
+        //     //       // window.webContents.send('fetchResponse', JSON.stringify({ type: 'code', role: 'assistant', content: textCodeSplit[1] }))
+
+
+        //     //       // text += textCodeSplit[0]
+        //     //       // code += textCodeSplit[1]
+        //     //       codeIncoming = true
+        //     //     } else {
+        //     //       // window.webContents.send('fetchResponse', JSON.stringify({ type: 'text', role: 'assistant', content: textCodeSplit[1] }))
+        //     //       // window.webContents.send('fetchResponse', JSON.stringify({ type: 'code', role: 'assistant', content: textCodeSplit[0] }))
+
+        //     //       // code += textCodeSplit[0]
+        //     //       // text += textCodeSplit[1]
+        //     //       codeIncoming = false
+        //     //     }
+        //     //     received = ''
+        //     //   }
+        //     // } else {
+        //     //   if (!codeIncoming) {
+        //     //     // text += received
+        //     //     received += data
+
+        //     //     // window.webContents.send('fetchResponse', JSON.stringify({ type: 'text', role: 'assistant', content: received }))
+
+        //     //     received = ''
+        //     //   } else {
+        //     //     // code += received
+        //     //     received += data
+
+        //     //     // window.webContents.send('fetchResponse', JSON.stringify({ type: 'code', role: 'assistant', content: received }))
+
+        //     //     received = ''
+        //     //   }
+        //     // }
+        //   })
 
         const fetchData = async () => {
-            try {
-                const completion = await openai.createChatCompletion({
-                    model: "gpt-3.5-turbo",
-                    messages: conversation
-                });
-
-                console.log(completion.data.choices[0].message);
-                const message = completion.data.choices[0].message
-                dispatch(addMessage(message))
-
-                const sourceCodePattern = /```([\s\S]*?)```/g;
-
-                const parts = message.content.split(/```/g);
-                console.log(parts)
-                const matches = message.content.match(sourceCodePattern);
-                console.log(matches)
-
-                parts.map((part, index) => {
-                    // console.log(part,matches[index])
-
-                    const searchString = "```" + part + "```";
-
-                    if (matches && matches.includes(searchString)) {
-                        console.log('// its a code')
-                        dispatch(addFormattedMessage({ type: 'code', role: 'assistant', content: part }))
-
-                    } else {
-                        console.log('// its text')
-                        dispatch(addFormattedMessage({ type: 'text', role: 'assistant', content: part }))
-                    }
-                })
-
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
+            ipcRenderer.send('fetch', JSON.stringify(conversation))
         };
 
         const lastMessage = conversation[conversation.length - 1];
 
         if (lastMessage.role == 'user') fetchData();
-        console.log(formattedConversation)
+        // console.log(formattedConversation)
         // Manually trigger syntax highlighting after component mounts
         hljs.highlightAll();
     }, [formattedConversation])
@@ -89,8 +114,8 @@ function Conversation() {
                         </div>
                         <div>
                             <pre>
-                                <code className="hljs"
-                                    dangerouslySetInnerHTML={{ __html: message.content.split('\n').slice(1).join('\n') }} />
+                                <code className={message.language ? `hljs language-${message.language}` : ``}
+                                    dangerouslySetInnerHTML={{ __html: message.content.split('\n').slice(1).join('\n').replace(/</g, '&lt;').replace(/>/g, '&gt;') }} />
                             </pre>
                         </div>
                     </div>
