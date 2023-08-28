@@ -6,16 +6,18 @@ import { ChatCompletionRequestMessage } from 'openai'
 const conversation: ChatCompletionRequestMessage[] = [
   {
     role: "system",
-    content: `You are a helpful assistant. Always enclose source code within 3 backticks in your answers.`,
+    content: `You are a helpful assistant.`,
   }
 ]
 
 interface formattedMessage {
-  type: 'text' | 'code',
-  role: 'system' | 'user' | 'assistant',
-  content: string,
+  type: 'text' | 'code' | 'error',
+  role?: 'system' | 'user' | 'assistant',
+  content?: string,
   language?: string,
-  class?: string
+  class?: string,
+  errorNumber?: number,
+  errorCode?: string
 }
 
 export const conversationSlice = createSlice({
@@ -27,7 +29,7 @@ export const conversationSlice = createSlice({
     formattedConversation: [
       {
         type: 'text', role: "system",
-        content: `You are a helpful assistant. Always enclose source code within 3 backticks in your answers.`,
+        content: `You are a helpful assistant.`,
         class: "non-user-message",
         language: ''
       }
@@ -110,6 +112,13 @@ export const conversationSlice = createSlice({
         state.conversation.push({ role: message.role, content: message.content })
         state.formattedConversation.push(message)
       }
+    },
+    addErrorMessage: (state, action: PayloadAction<formattedMessage>) => {
+      state.formattedConversation.push(action.payload)
+    },
+    removeErrorMessage: (state, action: PayloadAction<formattedMessage>) => {
+      state.formattedConversation = state.formattedConversation.filter(ele => ele.type !== 'error')
+      // printFormattedMessages(state)
     }
   }
 })
@@ -135,5 +144,8 @@ const printLastFormattedMessage = (state) => {
   const lastObject = state.formattedConversation.slice(-1)[0];
   return lastObject ? { role: lastObject.role, content: lastObject.content, type: lastObject.type } : null;
 };
-
-export const { addInput, appendInput, appendLastMessage, addMessage, addFormattedMessage } = conversationSlice.actions;
+// const printFormattedMessages = (state) => {
+//   const lastObject = state.formattedConversation
+//   console.log(lastObject)
+// };
+export const { addInput, appendInput, removeErrorMessage, appendLastMessage, addErrorMessage, addMessage, addFormattedMessage } = conversationSlice.actions;

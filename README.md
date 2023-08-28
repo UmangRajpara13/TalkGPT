@@ -14,17 +14,21 @@
   </div> -->
 <!-- </div> -->
 
+#### [Watch Demo](https://youtu.be/GrwPSXVzkLc)
+
 #### Desktop App that connects to GPT_3.5_Turbo and provides Chat Completion through API.  
 
 #### Works standalone as well as with [Able](https://github.com/umangrajpara13/Able) for Speech-to-Text Capability
 
-<div>
+<!-- <div>
     <p>
       <a aria-label="screenshot">
         <img  src="./assets/screenshot.png">
       </a>
     </p>
-</div>
+</div> -->
+
+![TalkGPT gif](assets/talkgpt.gif)
 
 ## Run  
 

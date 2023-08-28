@@ -3,11 +3,11 @@
   padding: 30px 0px 30px 0px;
   overflow-y: auto;
   overflow-x: hidden;
-  background-color: #2b2b2b;
+  background-color: var(--conversation);
 }
 
 .conversation::-webkit-scrollbar {
-  background-color: #5e75755e;
+  background-color: inherit;
   width: 15px;
   border-radius: 0px;
   margin-left: 10px;
@@ -46,19 +46,32 @@ p {
 
 .user-message {
   margin: 40px 0;
-  margin-left: 60vw;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  background-color: #5e75755e;
+  background-color: #5baa9233;
+  display: flex;
+  justify-content: flex-end;
 }
 .non-user-message {
-  /* margin: 10px 0; */
-
   margin-right: 10vw;
-  /* background-color: rgba(94, 117, 117, 0.37); */
-  /* background-color: #334c74; */
 }
 
+.error-message {
+  background-color: rgba(167, 91, 91, 0.281);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  height: 30px;
+}
+.error-message > *{
+  padding: 5px;
+}
+.error-message button {
+  width: 100px;
+  /* border: 1px dotted; */
+  background-color: rgba(255, 0, 0, 0.11);
+  color: inherit;
+  /* border-radius: 5px; */
+}
 .code::after,
 .code::before {
   content: "`";

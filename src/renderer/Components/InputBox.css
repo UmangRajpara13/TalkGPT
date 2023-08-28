@@ -2,9 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 70px 20px 70px;
-  flex: 1;  background: #2b2b2b;
-
+  padding: 10px 70px 10px 70px;
+  flex: 1;
+  background: var(--input-box);
 }
 
 .input-form {
@@ -14,9 +14,10 @@
 }
 
 .input-feild {
-  background: #2b2b2b;
+  background: inherit;
+  height: 66px;
   color: white;
-  font-size: 20px;
+  font-size: 17px;
   display: flex;
   justify-content: center;
   align-items: center;

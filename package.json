@@ -5,7 +5,7 @@
     "dev": "electron-esbuild dev",
     "build": "electron-esbuild build",
     "package": "yarn build && electron-builder",
-    "debianInstall": "sudo dpkg -i dist/talkgpt_1.0.0_amd64.deb"
+    "debianInstall": "yarn package && sudo dpkg -i dist/talkgpt_1.0.0_amd64.deb"
   },
   "devDependencies": {
     "@types/node": "^18.16.19",

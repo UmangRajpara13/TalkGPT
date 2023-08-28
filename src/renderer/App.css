@@ -1,7 +1,13 @@
-.app{
+:root {
+  --title-bar: #1d1d1d;
+  --conversation: #1d1d1d;
+  --input-box: #252525;
+}
+
+.app {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #5e75755e;
+  background-color: #2b2b2b;
   color: rgb(202, 201, 201);
 }

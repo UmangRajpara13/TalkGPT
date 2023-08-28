@@ -1,6 +1,6 @@
 .titlebar {
   display: flex;
-  background: #2b2b2b;
+  background: var(--title-bar);
   color: #c2c1c1;
   border-bottom: 1px dashed;
   padding: 4px;

@@ -1,7 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { conversationSlice} from './slice'
 
-// ...
 
 const store = configureStore({
     reducer: {

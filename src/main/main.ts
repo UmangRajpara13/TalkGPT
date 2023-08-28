@@ -62,7 +62,7 @@ async function createWindow() {
     // window.blur()
 
     if (isDev) {
-      // window!.webContents.openDevTools()/
+      window!.webContents.openDevTools()
     }
   })
 }

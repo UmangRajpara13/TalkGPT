@@ -1,7 +1,5 @@
 import { BuildOptions } from 'esbuild'
 import * as path from 'path'
-import dotenv from 'dotenv';
-dotenv.config(); // This will load variables from the .env file into process.env
 
 
 const config: BuildOptions = {
@@ -10,12 +8,6 @@ const config: BuildOptions = {
     path.resolve('src/renderer/index.tsx')  ],
   bundle: true,
   target: 'chrome114', // electron version target
-
-  define: {
-    'process.env.OPENAI_API_KEY': JSON.stringify(process.env.OPENAI_API_KEY),
-  },
-
-
   loader: {
     '.png': 'dataurl',
     '.woff2': 'dataurl',

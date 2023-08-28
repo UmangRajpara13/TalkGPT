@@ -2,7 +2,7 @@ import './conversation.css'
 import React, { useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '../hooks'
 import { Configuration, OpenAIApi } from "openai";
-import { addMessage, addFormattedMessage, appendLastMessage } from '../slice';
+import { addMessage, addFormattedMessage, appendLastMessage, removeErrorMessage } from '../slice';
 import axios from 'axios';
 import hljs from 'highlight.js';
 import { ipcRenderer } from 'electron';
@@ -20,72 +20,6 @@ function Conversation() {
     const dispatch = useAppDispatch()
 
     useEffect(() => {
-        // ipcRenderer.on('fetchResponse', (event, data) => {
-        //     // console.log(data)
-        //     console.log(conversation)
-        //     // dispatch(addMessage(JSON.parse(data)))
-
-        //     // dispatch(appendLastMessage(JSON.parse(data)))
-
-
-        //     var received = ''
-        //     var codeIncoming = false
-
-
-
-        //     // if (data.includes('`')) {
-        //     //   for (let i = 0; i < 2; i++) {
-        //     //     received += data
-        //     //   }
-        //     //   if (received.includes('```')) {
-        //     //     const textCodeSplit = received.split('```')
-        //     //     if (!codeIncoming) {
-        //     //       // dispatch(appendLastMessage(JSON.parse(data)))
-
-        //     //       // window.webContents.send('fetchResponse', JSON.stringify({ type: 'text', role: 'assistant', content: textCodeSplit[0] }))
-        //     //       // window.webContents.send('fetchResponse', JSON.stringify({ type: 'code', role: 'assistant', content: textCodeSplit[1] }))
-
-
-        //     //       // text += textCodeSplit[0]
-        //     //       // code += textCodeSplit[1]
-        //     //       codeIncoming = true
-        //     //     } else {
-        //     //       // window.webContents.send('fetchResponse', JSON.stringify({ type: 'text', role: 'assistant', content: textCodeSplit[1] }))
-        //     //       // window.webContents.send('fetchResponse', JSON.stringify({ type: 'code', role: 'assistant', content: textCodeSplit[0] }))
-
-        //     //       // code += textCodeSplit[0]
-        //     //       // text += textCodeSplit[1]
-        //     //       codeIncoming = false
-        //     //     }
-        //     //     received = ''
-        //     //   }
-        //     // } else {
-        //     //   if (!codeIncoming) {
-        //     //     // text += received
-        //     //     received += data
-
-        //     //     // window.webContents.send('fetchResponse', JSON.stringify({ type: 'text', role: 'assistant', content: received }))
-
-        //     //     received = ''
-        //     //   } else {
-        //     //     // code += received
-        //     //     received += data
-
-        //     //     // window.webContents.send('fetchResponse', JSON.stringify({ type: 'code', role: 'assistant', content: received }))
-
-        //     //     received = ''
-        //     //   }
-        //     // }
-        //   })
-
-        const fetchData = async () => {
-            ipcRenderer.send('fetch', JSON.stringify(conversation))
-        };
-
-        const lastMessage = conversation[conversation.length - 1];
-
-        if (lastMessage.role == 'user') fetchData();
-        // console.log(formattedConversation)
         // Manually trigger syntax highlighting after component mounts
         hljs.highlightAll();
     }, [formattedConversation])
@@ -97,34 +31,47 @@ function Conversation() {
             console.error('Failed to copy code block:', error);
         });
     };
-
+    const retry = () => {
+        dispatch(removeErrorMessage())
+        ipcRenderer.send('fetch', JSON.stringify(conversation))
+    }
     return (
         <div className='conversation'>
-            {formattedConversation.map((message, index) =>
+            {formattedConversation.map((message, index, array) =>
             (<React.Fragment key={index}>
-                {message.type === 'code' ? (
-                    <div className={message.class}>
-                        <div className='code-titlebar'>
-                            <span className='code-title'>
-                                {message.content.split('\n')[0]}
-                            </span>
-                            <button className="copy-button" onClick={() => handleCopyClick(message.content.split('\n').slice(1).join('\n'))}>
-                                Copy
-                            </button>
-                        </div>
-                        <div>
-                            <pre>
-                                <code className={message.language ? `hljs language-${message.language}` : ``}
-                                    dangerouslySetInnerHTML={{ __html: message.content.split('\n').slice(1).join('\n').replace(/</g, '&lt;').replace(/>/g, '&gt;') }} />
-                            </pre>
-                        </div>
-                    </div>
-                ) : (
-                    <div className={message.class}>
-                        <p dangerouslySetInnerHTML={{ __html: message.content }} />
-                    </div>
+                {(message.type === 'code' || message.type === 'text') ?
+                    message.type === 'code' ? (
 
-                )}
+                        <div className={message.class}>
+                            <div className='code-titlebar'>
+                                <span className='code-title'>
+                                    {message.content.split('\n')[0]}
+                                </span>
+                                <button className="copy-button" onClick={() => handleCopyClick(message.content.split('\n').slice(1).join('\n'))}>
+                                    Copy
+                                </button>
+                            </div>
+                            <div>
+                                <pre>
+                                    <code className={message.language ? `hljs language-${message.language}` : ``}
+                                        dangerouslySetInnerHTML={{ __html: message.content.split('\n').slice(1).join('\n').replace(/</g, '&lt;').replace(/>/g, '&gt;') }} />
+                                </pre>
+                            </div>
+                        </div>
+                    ) : (
+                        <div className={message.class}>
+                            <p dangerouslySetInnerHTML={{ __html: message.content }} />
+                        </div>
+
+                    ) :
+                    <div className={message.class}>
+                        <span>{message.errorNumber}</span>
+                        <span>   {message.errorCode}</span>
+                        <button className="retry-button" onClick={() => retry()}>
+                            Try Again
+                        </button>
+                    </div>
+                }
             </React.Fragment>)
             )}
         </div>

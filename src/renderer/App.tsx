@@ -3,7 +3,7 @@ import 'highlight.js/styles/github-dark.css';
 
 import React, { useEffect, useState, useRef } from 'react'
 import { useAppDispatch, useAppSelector } from './hooks'
-import { addMessage, appendInput, appendLastMessage } from './slice';
+import { addErrorMessage, addMessage, appendInput, appendLastMessage } from './slice';
 import Conversation from './Components/conversation';
 import { ipcRenderer } from 'electron';
 import InputBox from './Components/InputBox';
@@ -35,7 +35,9 @@ export function App() {
       // console.log('error', data)
     })
     ipcRenderer.on('state', (event, data) => {
-      // console.log('isFocused', data)
+      // console.log('window isFocused', data)
+      if (data) textarea.focus()
+
     })
 
 
@@ -103,13 +105,20 @@ export function App() {
       }
     })
 
+    ipcRenderer.on('mainError', (event, error) => {
+      console.log(JSON.parse(error))
+      dispatch(addErrorMessage({ type: 'error', errorCode: JSON.parse(error)?.errorCode, errorNumber: JSON.parse(error)?.errorNumber, class: "error-message" }))
+
+    })
   }, [])
 
 
   return (
     <div className="app">
       <Titlebar />
+
       <Conversation />
+
       <InputBox />
 
 
