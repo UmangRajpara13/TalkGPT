@@ -14,7 +14,7 @@
   </div> -->
 <!-- </div> -->
 
-#### [Watch Demo](https://youtu.be/GrwPSXVzkLc)
+#### [Watch Demo](https://youtu.be/WQbUCbn8PN0)
 
 #### Desktop App that connects to GPT_3.5_Turbo and provides Chat Completion through API.  
 
