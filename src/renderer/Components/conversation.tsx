@@ -53,14 +53,15 @@ function Conversation() {
                             </div>
                             <div>
                                 <pre>
-                                    <code className={message.language ? `hljs language-${message.language}` : ``}
-                                        dangerouslySetInnerHTML={{ __html: message.content.split('\n').slice(1).join('\n').replace(/</g, '&lt;').replace(/>/g, '&gt;') }} />
+                                    <code className={message.language ? `hljs language-${message.language}` : ``}>
+                                        {message.content.split('\n').slice(1).join('\n').replace(/</g, '&lt;').replace(/>/g, '&gt;')}
+                                    </code>
                                 </pre>
                             </div>
                         </div>
                     ) : (
                         <div className={message.class}>
-                            <p dangerouslySetInnerHTML={{ __html: message.content }} />
+                            <p >{message.content}</p>
                         </div>
 
                     ) :

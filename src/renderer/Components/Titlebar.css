@@ -10,7 +10,7 @@
   -webkit-app-region: drag;
   display: flex;
   flex: 1;
-  /* font-size: 17px; */
+  font-weight: bold;
   padding: 5px;
   justify-content: center;
 }

@@ -4,13 +4,17 @@
   overflow-y: auto;
   overflow-x: hidden;
   background-color: var(--conversation);
+  font-size: 20px; 
+   line-height: 35px;
+
 }
 
 .conversation::-webkit-scrollbar {
   background-color: inherit;
   width: 15px;
   border-radius: 0px;
-  margin-left: 10px;
+  margin-left: 10px;  
+
 }
 
 .conversation::-webkit-scrollbar-thumb {
@@ -51,7 +55,7 @@ p {
   justify-content: flex-end;
 }
 .non-user-message {
-  margin-right: 10vw;
+  margin-right: 10vw; 
 }
 
 .error-message {
@@ -67,10 +71,8 @@ p {
 }
 .error-message button {
   width: 100px;
-  /* border: 1px dotted; */
   background-color: rgba(255, 0, 0, 0.11);
   color: inherit;
-  /* border-radius: 5px; */
 }
 .code::after,
 .code::before {
