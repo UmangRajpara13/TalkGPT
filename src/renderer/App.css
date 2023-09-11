@@ -5,9 +5,10 @@
 }
 
 .app {
-  height: 100vh;
+  height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
   background-color: #2b2b2b;
   color: rgb(202, 201, 201);
+border: 1px solid #585858;
 }

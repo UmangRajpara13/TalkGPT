@@ -5,9 +5,13 @@ html {
 body {
   margin: 0;
   font-family: -apple-system, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  
+  -webkit-font-smoothing: antialiased; 
 }
+
+#root{
+  height: 100vh;
+}
+
 pre{
   margin: 0;
 }
